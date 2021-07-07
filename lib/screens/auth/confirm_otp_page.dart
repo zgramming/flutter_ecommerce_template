@@ -10,12 +10,6 @@ class ConfirmOtpPage extends StatefulWidget {
 }
 
 class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
-  TextEditingController otp1 = TextEditingController(text: '1');
-  TextEditingController otp2 = TextEditingController(text: '2');
-  TextEditingController otp3 = TextEditingController(text: '3');
-  TextEditingController otp4 = TextEditingController(text: '4');
-  TextEditingController otp5 = TextEditingController(text: '5');
-
   Widget otpBox(TextEditingController otpController) {
     return Container(
       height: 48,
@@ -30,8 +24,8 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
             padding: const EdgeInsets.only(top: 8.0),
             child: TextField(
               controller: otpController,
-              decoration: InputDecoration(
-                  border: InputBorder.none, contentPadding: EdgeInsets.zero),
+              decoration:
+                  InputDecoration(border: InputBorder.none, contentPadding: EdgeInsets.zero),
               style: TextStyle(fontSize: 16.0),
               keyboardType: TextInputType.phone,
             ),
@@ -45,17 +39,13 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
   Widget build(BuildContext context) {
     Widget title = Text(
       'Confirm your OTP',
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: 34.0,
-          fontWeight: FontWeight.bold,
-          shadows: [
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.15),
-              offset: Offset(0, 5),
-              blurRadius: 10.0,
-            )
-          ]),
+      style: TextStyle(color: Colors.white, fontSize: 34.0, fontWeight: FontWeight.bold, shadows: [
+        BoxShadow(
+          color: Color.fromRGBO(0, 0, 0, 0.15),
+          offset: Offset(0, 5),
+          blurRadius: 10.0,
+        )
+      ]),
     );
 
     Widget subTitle = Padding(
@@ -71,8 +61,7 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
     Widget verifyButton = Center(
       child: InkWell(
         onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => IntroPage()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => IntroPage()));
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
@@ -85,14 +74,11 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
                       fontStyle: FontStyle.normal,
                       fontSize: 20.0))),
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Color.fromRGBO(236, 60, 3, 1),
-                    Color.fromRGBO(234, 60, 3, 1),
-                    Color.fromRGBO(216, 78, 16, 1),
-                  ],
-                  begin: FractionalOffset.topCenter,
-                  end: FractionalOffset.bottomCenter),
+              gradient: LinearGradient(colors: [
+                Color.fromRGBO(236, 60, 3, 1),
+                Color.fromRGBO(234, 60, 3, 1),
+                Color.fromRGBO(216, 78, 16, 1),
+              ], begin: FractionalOffset.topCenter, end: FractionalOffset.bottomCenter),
               boxShadow: [
                 BoxShadow(
                   color: Color.fromRGBO(0, 0, 0, 0.16),
@@ -102,21 +88,6 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
               ],
               borderRadius: BorderRadius.circular(9.0)),
         ),
-      ),
-    );
-
-    Widget otpCode = Container(
-      padding: const EdgeInsets.only(right: 28.0),
-      height: 190,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          otpBox(otp1),
-          otpBox(otp2),
-          otpBox(otp3),
-          otpBox(otp4),
-          otpBox(otp5)
-        ],
       ),
     );
 
@@ -149,8 +120,7 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
       onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
       child: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)),
+            image: DecorationImage(image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)),
         child: Container(
           decoration: BoxDecoration(color: transparentYellow),
           child: Scaffold(
@@ -174,15 +144,15 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
                         padding: const EdgeInsets.only(right: 28.0),
                         child: Center(
                           child: PinCodeTextField(
-                            controller: new TextEditingController(),
-                            highlightColor: Colors.white,
+                            controller: new TextEditingController(text: '123'),
+                            highlightColor: Colors.yellow,
                             highlightAnimation: true,
-                            highlightAnimationBeginColor: Colors.white,
-                            highlightAnimationEndColor: Theme.of(context).primaryColor,
+                            highlightAnimationBeginColor: Colors.red,
+                            highlightAnimationEndColor: Colors.green,
                             pinTextAnimatedSwitcherDuration: Duration(milliseconds: 500),
                             wrapAlignment: WrapAlignment.center,
                             hasTextBorderColor: Colors.transparent,
-                            highlightPinBoxColor: Colors.white,
+                            highlightPinBoxColor: Colors.pink,
                             autofocus: true,
                             pinBoxHeight: 60,
                             pinBoxWidth: 60,

@@ -1,4 +1,3 @@
-import 'package:ecommerce_int2/app_properties.dart';
 import 'package:ecommerce_int2/models/category.dart';
 
 import 'package:flutter/material.dart';
@@ -7,7 +6,7 @@ import 'category_card.dart';
 import 'recommended_list.dart';
 
 class TabView extends StatelessWidget {
-  List<Category> categories = [
+  final List<Category> categories = [
     Category(
       Color(0xffFCE183),
       Color(0xffF68D7F),
@@ -48,7 +47,10 @@ class TabView extends StatelessWidget {
 
   final TabController tabController;
 
-  TabView({Key key, this.tabController}) : super(key: key);
+  TabView({
+    Key? key,
+    required this.tabController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

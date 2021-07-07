@@ -17,8 +17,8 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
           color: Color.fromRGBO(255, 255, 255, 0.9),
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(24), topLeft: Radius.circular(24))),
+          borderRadius:
+              BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24))),
       child: ListView(
         children: <Widget>[
           Column(
@@ -35,8 +35,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                 child: Image.asset('assets/headphones.png'),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 72.0, vertical: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 72.0, vertical: 16.0),
                 child: Text(
                   'Boat Rockerz 350 On-Ear Bluetooth Headphones',
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -69,14 +68,13 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                       initialRating: 1,
                       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                       ratingWidget: RatingWidget(
-                        empty: Icon(Icons.favorite_border,
-                            color: Color(0xffFF8993), size: 20),
+                        empty: Icon(Icons.favorite_border, color: Color(0xffFF8993), size: 20),
                         full: Icon(
                           Icons.favorite,
                           color: Color(0xffFF8993),
                           size: 20,
                         ),
-                        half: null,
+                        half: SizedBox(),
                       ),
                       onRatingUpdate: (value) {
                         setState(() {
@@ -96,8 +94,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
-            child: Align(
-                alignment: Alignment(-1, 0), child: Text('Recent Reviews')),
+            child: Align(alignment: Alignment(-1, 0), child: Text('Recent Reviews')),
           ),
           Column(
             children: <Widget>[
@@ -115,8 +112,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                             padding: const EdgeInsets.only(right: 16.0),
                             child: CircleAvatar(
                               maxRadius: 14,
-                              backgroundImage:
-                                  AssetImage('assets/background.jpg'),
+                              backgroundImage: AssetImage('assets/background.jpg'),
                             ),
                           ),
                           Expanded(
@@ -125,24 +121,20 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Text(
                                       'Billy Holand',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                      style: TextStyle(fontWeight: FontWeight.bold),
                                     ),
                                     Text(
                                       '10 am, Via iOS',
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 10.0),
+                                      style: TextStyle(color: Colors.grey, fontSize: 10.0),
                                     )
                                   ],
                                 ),
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: RatingBar(
 //                                borderColor: Color(0xffFF8993),
 //                                fillColor: Color(0xffFF8993),
@@ -150,8 +142,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                                     itemSize: 20,
                                     allowHalfRating: true,
                                     initialRating: val.toDouble(),
-                                    itemPadding:
-                                        EdgeInsets.symmetric(horizontal: 4.0),
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                                     ratingWidget: RatingWidget(
                                       empty: Icon(Icons.favorite_border,
                                           color: Color(0xffFF8993), size: 20),
@@ -160,7 +151,7 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                                         color: Color(0xffFF8993),
                                         size: 20,
                                       ),
-                                      half: null,
+                                      half: SizedBox(),
                                     ),
                                     onRatingUpdate: (value) {
                                       setState(() {
@@ -177,17 +168,13 @@ class _RatingBottomSheetState extends State<RatingBottomSheet> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 16.0),
+                                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text(
                                         '21 likes',
-                                        style: TextStyle(
-                                            color: Colors.grey[400],
-                                            fontSize: 10.0),
+                                        style: TextStyle(color: Colors.grey[400], fontSize: 10.0),
                                       ),
                                       Text(
                                         '1 Comment',

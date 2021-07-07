@@ -8,7 +8,11 @@ import 'shop_bottomSheet.dart';
 class ProductOption extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final Product product;
-  const ProductOption(this.scaffoldKey, {Key key, this.product}) : super(key: key);
+  const ProductOption(
+    this.scaffoldKey, {
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +42,11 @@ class ProductOption extends StatelessWidget {
                     child: Text(product.name,
                         textAlign: TextAlign.right,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            shadows: shadow)),
+                            fontWeight: FontWeight.bold, color: Colors.white, shadows: shadow)),
                   ),
                   InkWell(
                     onTap: () async {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>CheckOutPage()));
-
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => CheckOutPage()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 2.5,
@@ -53,8 +54,7 @@ class ProductOption extends StatelessWidget {
                           color: Colors.red,
                           gradient: mainButton,
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              bottomLeft: Radius.circular(10.0))),
+                              topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       child: Center(
                         child: Text(
@@ -69,9 +69,11 @@ class ProductOption extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      scaffoldKey.currentState.showBottomSheet((context) {
-                        return ShopBottomSheet();
-                      });
+                      if (scaffoldKey.currentState != null) {
+                        scaffoldKey.currentState!.showBottomSheet((context) {
+                          return ShopBottomSheet();
+                        });
+                      }
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 2.5,
@@ -79,8 +81,7 @@ class ProductOption extends StatelessWidget {
                           color: Colors.red,
                           gradient: mainButton,
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10.0),
-                              bottomLeft: Radius.circular(10.0))),
+                              topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       child: Center(
                         child: Text(

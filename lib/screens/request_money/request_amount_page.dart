@@ -10,7 +10,6 @@ class RequestAmountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     Widget viewProductButton = InkWell(
       onTap: () {},
       child: Container(
@@ -39,8 +38,8 @@ class RequestAmountPage extends StatelessWidget {
     );
 
     Widget qrCode = InkWell(
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => ReceivePaymentPage(user))),
+      onTap: () =>
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => ReceivePaymentPage(user))),
       child: Container(
         padding: const EdgeInsets.all(16.0),
         height: 60,
@@ -84,8 +83,7 @@ class RequestAmountPage extends StatelessWidget {
           builder: (context, constraints) => SingleChildScrollView(
             physics: ClampingScrollPhysics(),
             child: ConstrainedBox(
-              constraints:
-                  BoxConstraints(minHeight: MediaQuery.of(context).size.height),
+              constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: Column(
@@ -107,8 +105,7 @@ class RequestAmountPage extends StatelessWidget {
                               children: <Widget>[
                                 CircleAvatar(
                                   maxRadius: 24,
-                                  backgroundImage:
-                                      NetworkImage(user.picture.thumbnail),
+                                  backgroundImage: NetworkImage(user.picture.thumbnail),
                                 ),
                                 SizedBox(width: 16.0),
                                 Column(
@@ -122,9 +119,7 @@ class RequestAmountPage extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(user.phone,
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.white30)),
+                                        style: TextStyle(fontSize: 12, color: Colors.white30)),
                                   ],
                                 )
                               ],
@@ -135,20 +130,16 @@ class RequestAmountPage extends StatelessWidget {
                           SizedBox(
                               width: 250,
                               child: Theme(
-                                data: ThemeData(
-                                    primaryColor: Colors.white,
-                                    fontFamily: 'Montserrat'),
+                                data:
+                                    ThemeData(primaryColor: Colors.white, fontFamily: 'Montserrat'),
                                 child: TextField(
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 48),
+                                  style: TextStyle(color: Colors.white, fontSize: 48),
                                   textAlign: TextAlign.center,
                                   decoration: InputDecoration(
                                     hintText: '\$ 00.00',
-                                    hintStyle: TextStyle(
-                                        color: Colors.white30, fontSize: 48),
+                                    hintStyle: TextStyle(color: Colors.white30, fontSize: 48),
                                     enabledBorder: const UnderlineInputBorder(
-                                      borderSide:
-                                          const BorderSide(color: Colors.white),
+                                      borderSide: const BorderSide(color: Colors.white),
                                     ),
                                   ),
                                 ),
@@ -167,9 +158,8 @@ class RequestAmountPage extends StatelessWidget {
                       children: <Widget>[
                         ListTile(
                           title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                              style:
+                                  TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -177,9 +167,7 @@ class RequestAmountPage extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
                               ),
                               Text(
                                 '90.00',
@@ -190,9 +178,8 @@ class RequestAmountPage extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                              style:
+                                  TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -200,9 +187,7 @@ class RequestAmountPage extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
                               ),
                               Text(
                                 '90.00',
@@ -213,9 +198,8 @@ class RequestAmountPage extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                              style:
+                                  TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -223,9 +207,7 @@ class RequestAmountPage extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
                               ),
                               Text(
                                 '90.00',
@@ -236,9 +218,8 @@ class RequestAmountPage extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                              style:
+                                  TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -246,9 +227,7 @@ class RequestAmountPage extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
                               ),
                               Text(
                                 '90.00',
@@ -259,9 +238,8 @@ class RequestAmountPage extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                              style:
+                                  TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -269,9 +247,7 @@ class RequestAmountPage extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10.0),
                               ),
                               Text(
                                 '90.00',

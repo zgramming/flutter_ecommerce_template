@@ -7,16 +7,14 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  Animation<double> opacity;
-  AnimationController controller;
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+  late final Animation<double> opacity;
+  late final AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(milliseconds: 2500), vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 100000), vsync: this);
     opacity = Tween<double>(begin: 1.0, end: 0.0).animate(controller)
       ..addListener(() {
         setState(() {});
@@ -33,15 +31,17 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void navigationPage() {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (_) => WelcomeBackPage()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => WelcomeBackPage()));
   }
 
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)),
+        image: DecorationImage(
+          image: AssetImage('assets/background.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(color: transparentYellow),
         child: SafeArea(
@@ -49,21 +49,15 @@ class _SplashScreenState extends State<SplashScreen>
             body: Column(
               children: <Widget>[
                 Expanded(
-                  child: Opacity(
-                      opacity: opacity.value,
-                      child: new Image.asset('assets/logo.png')),
+                  child: Opacity(opacity: opacity.value, child: new Image.asset('assets/logo.png')),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RichText(
-                    text: TextSpan(
-                        style: TextStyle(color: Colors.black),
-                        children: [
-                          TextSpan(text: 'Powered by '),
-                          TextSpan(
-                              text: 'int2.io',
-                              style: TextStyle(fontWeight: FontWeight.bold))
-                        ]),
+                    text: TextSpan(style: TextStyle(color: Colors.black), children: [
+                      TextSpan(text: 'Powered by '),
+                      TextSpan(text: 'int2.io', style: TextStyle(fontWeight: FontWeight.bold))
+                    ]),
                   ),
                 )
               ],

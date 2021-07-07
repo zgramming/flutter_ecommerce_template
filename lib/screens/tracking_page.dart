@@ -34,10 +34,9 @@ class _TrackingPageState extends State<TrackingPage> {
     return Container(
       decoration: BoxDecoration(
           color: Colors.grey[100],
-          image: DecorationImage(
-              image: AssetImage('assets/Group 444.png'), fit: BoxFit.contain)),
+          image: DecorationImage(image: AssetImage('assets/Group 444.png'), fit: BoxFit.contain)),
       child: Container(
-        color:Colors.white54,
+        color: Colors.white54,
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
@@ -57,17 +56,16 @@ class _TrackingPageState extends State<TrackingPage> {
             ),
             body: SafeArea(
               child: LayoutBuilder(
-                builder:(_,constraints)=> Column(
+                builder: (_, constraints) => Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 16.0),
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                          color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: DropdownButtonHideUnderline(
-                        child: DropdownButton(
+                        child: DropdownButton<String>(
                           items: <String>[
                             'Boat Headphones Bass boost 100v',
                             'Boat Headphones Bass boost 200v',
@@ -82,12 +80,17 @@ class _TrackingPageState extends State<TrackingPage> {
                                   color: Colors.white,
                                   child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: Text(val,maxLines: 2,semanticsLabel: '...',overflow: TextOverflow.ellipsis,))),
+                                      child: Text(
+                                        val,
+                                        maxLines: 2,
+                                        semanticsLabel: '...',
+                                        overflow: TextOverflow.ellipsis,
+                                      ))),
                             );
                           }).toList(),
                           onChanged: (val) {
                             setState(() {
-                              selectedProduct = val;
+                              selectedProduct = val ?? '';
                             });
                           },
                           value: selectedProduct,
@@ -96,46 +99,48 @@ class _TrackingPageState extends State<TrackingPage> {
                           elevation: 0,
                         ),
                       ),
-                    ),SingleChildScrollView(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(maxHeight: constraints.maxHeight-48,),
-                          child: Theme(
-                            data:
-                                ThemeData(primaryColor: yellow, fontFamily: 'Montserrat'),
-                            child: Stepper(
+                    ),
+                    SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: constraints.maxHeight - 48,
+                        ),
+                        child: Theme(
+                          data: ThemeData(primaryColor: yellow, fontFamily: 'Montserrat'),
+                          child: Stepper(
 //                          physics: NeverScrollableScrollPhysics(),
-                              steps: [
-                                ...locations
-                                    .map(
-                                      (location) => Step(
-                                        isActive: location.isHere || location.passed,
-                                        title: Text(location.city),
-                                        subtitle: Text(location.getDate()),
-                                        content: Align(
-                                          child: Image.asset('assets/icons/truck.png'),
-                                          alignment: Alignment.centerLeft,
-                                        ),
-                                        state: location.passed
-                                            ? StepState.complete
-                                            : location.isHere
-                                                ? StepState.editing
-                                                : StepState.indexed,
+                            steps: [
+                              ...locations
+                                  .map(
+                                    (location) => Step(
+                                      isActive: location.isHere || location.passed,
+                                      title: Text(location.city),
+                                      subtitle: Text(location.getDate()),
+                                      content: Align(
+                                        child: Image.asset('assets/icons/truck.png'),
+                                        alignment: Alignment.centerLeft,
                                       ),
-                                    )
-                                    .toList()
-                              ],
-                              currentStep: locations
-                                  .indexOf(locations.firstWhere((loc) => loc.isHere)),
-                              controlsBuilder: (BuildContext context,
-                                  {VoidCallback onStepContinue,
-                                  VoidCallback onStepCancel}) {
-                                return Container();
-                              },
-                            ),
+                                      state: location.passed
+                                          ? StepState.complete
+                                          : location.isHere
+                                              ? StepState.editing
+                                              : StepState.indexed,
+                                    ),
+                                  )
+                                  .toList()
+                            ],
+                            currentStep:
+                                locations.indexOf(locations.firstWhere((loc) => loc.isHere)),
+                            controlsBuilder: (
+                              context, {
+                              onStepCancel,
+                              onStepContinue,
+                            }) =>
+                                Container(),
                           ),
                         ),
                       ),
-
+                    ),
                   ],
                 ),
               ),
@@ -152,8 +157,7 @@ class Location {
   bool isHere;
   bool passed;
 
-  Location(this.city, this.date,
-      {this.showHour = false, this.isHere = false, this.passed = false});
+  Location(this.city, this.date, {this.showHour = false, this.isHere = false, this.passed = false});
 
   String getDate() {
     if (showHour) {

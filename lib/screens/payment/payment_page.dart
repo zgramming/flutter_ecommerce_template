@@ -20,10 +20,10 @@ class _PaymentPageState extends State<PaymentPage> {
   ScrollController scrollController = ScrollController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    scrollController.addListener((){
-      if(scrollController.position.userScrollDirection.index==1){
+    scrollController.addListener(() {
+      if (scrollController.position.userScrollDirection.index == 1) {
         FocusScope.of(context).requestFocus(FocusNode());
       }
     });
@@ -113,8 +113,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.all(32.0),
                       decoration: BoxDecoration(
-                          color: active,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                          color: active, borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -132,9 +131,7 @@ class _PaymentPageState extends State<PaymentPage> {
                               ),
                               Flexible(
                                   child: Center(
-                                      child: Text(
-                                          convertCardNumber(
-                                              cardNumber.text, '-'),
+                                      child: Text(convertCardNumber(cardNumber.text, '-'),
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
@@ -146,21 +143,17 @@ class _PaymentPageState extends State<PaymentPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(convertMonthYear(month.text, year.text),
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold)),
+                                  style:
+                                      TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                               Text(cvc.text,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold))
+                                  style:
+                                      TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
                             ],
                           ),
                           Spacer(),
                           Text(cardHolder.text,
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0))
+                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.0))
                         ],
                       ),
                     ),
@@ -171,8 +164,8 @@ class _PaymentPageState extends State<PaymentPage> {
                         children: [
                           Colors.red,
                           Colors.blue,
-                          Colors.purple[700],
-                          Colors.green[700],
+                          Colors.purple[700]!,
+                          Colors.green[700]!,
                           Colors.lightBlueAccent
                         ]
                             .map((c) => InkWell(
@@ -199,29 +192,24 @@ class _PaymentPageState extends State<PaymentPage> {
                           color: Colors.white,
                           boxShadow: shadow,
                           borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(10),
-                              bottomLeft: Radius.circular(10))),
+                              bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10))),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Container(
                             padding: EdgeInsets.only(left: 16.0),
                             decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
                               color: Colors.grey[200],
                             ),
                             child: TextField(
-                              inputFormatters: [
-                                LengthLimitingTextInputFormatter(16)
-                              ],
+                              inputFormatters: [LengthLimitingTextInputFormatter(16)],
                               controller: cardNumber,
                               onChanged: (val) {
                                 setState(() {});
                               },
                               decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Card Number'),
+                                  border: InputBorder.none, hintText: 'Card Number'),
                             ),
                           ),
                           Row(
@@ -230,18 +218,14 @@ class _PaymentPageState extends State<PaymentPage> {
                                 child: Container(
                                   padding: EdgeInsets.only(left: 16.0),
                                   decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
                                     color: Colors.grey[200],
                                   ),
                                   child: TextField(
-                                    inputFormatters: [
-                                      LengthLimitingTextInputFormatter(2)
-                                    ],
+                                    inputFormatters: [LengthLimitingTextInputFormatter(2)],
                                     controller: month,
                                     decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: 'Month'),
+                                        border: InputBorder.none, hintText: 'Month'),
                                     onChanged: (val) {
                                       setState(() {});
                                     },
@@ -255,18 +239,14 @@ class _PaymentPageState extends State<PaymentPage> {
                                 child: Container(
                                   padding: EdgeInsets.only(left: 16.0),
                                   decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
                                     color: Colors.grey[200],
                                   ),
                                   child: TextField(
-                                    inputFormatters: [
-                                      LengthLimitingTextInputFormatter(2)
-                                    ],
+                                    inputFormatters: [LengthLimitingTextInputFormatter(2)],
                                     controller: year,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: 'Year'),
+                                    decoration:
+                                        InputDecoration(border: InputBorder.none, hintText: 'Year'),
                                     onChanged: (val) {
                                       setState(() {});
                                     },
@@ -280,15 +260,13 @@ class _PaymentPageState extends State<PaymentPage> {
                                 child: Container(
                                   padding: EdgeInsets.only(left: 16.0),
                                   decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5)),
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
                                     color: Colors.grey[200],
                                   ),
                                   child: TextField(
                                     controller: cvc,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: 'CVC'),
+                                    decoration:
+                                        InputDecoration(border: InputBorder.none, hintText: 'CVC'),
                                     onChanged: (val) {
                                       setState(() {});
                                     },
@@ -300,15 +278,13 @@ class _PaymentPageState extends State<PaymentPage> {
                           Container(
                             padding: EdgeInsets.only(left: 16.0),
                             decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
+                              borderRadius: BorderRadius.all(Radius.circular(5)),
                               color: Colors.grey[200],
                             ),
                             child: TextField(
                               controller: cardHolder,
                               decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Name on card'),
+                                  border: InputBorder.none, hintText: 'Name on card'),
                               onChanged: (val) {
                                 setState(() {});
                               },

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
 
-  ProductCard(this.product,{Key key, }) : super(key: key);
+  ProductCard(
+    this.product, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +42,7 @@ class ProductCard extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Color(0xffe0450a).withOpacity(0.51),
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                bottomLeft: Radius.circular(10))),
+                                topLeft: Radius.circular(10), bottomLeft: Radius.circular(10))),
                         child: Text(
                           product.name,
                           textAlign: TextAlign.right,

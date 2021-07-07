@@ -11,8 +11,7 @@ class RatingDialog extends StatelessWidget {
     Widget payNow = InkWell(
       onTap: () async {
         Navigator.of(context).pop();
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => CheckOutPage()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => CheckOutPage()));
       },
       child: Container(
         height: 60,
@@ -42,8 +41,7 @@ class RatingDialog extends StatelessWidget {
       physics: ClampingScrollPhysics(),
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              color: Colors.grey[50]),
+              borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.grey[50]),
           padding: EdgeInsets.all(24.0),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Text(
@@ -54,17 +52,14 @@ class RatingDialog extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: RichText(
                 text: TextSpan(
-                    style:
-                        TextStyle(fontFamily: 'Montserrat', color: Colors.grey),
+                    style: TextStyle(fontFamily: 'Montserrat', color: Colors.grey),
                     children: [
                       TextSpan(
                         text: 'You rated ',
                       ),
                       TextSpan(
                           text: 'Boat Rockerz 350 On-Ear Bluetooth Headphones',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey[600]))
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[600]))
                     ]),
               ),
             ),
@@ -84,22 +79,20 @@ class RatingDialog extends StatelessWidget {
                 print(value);
               },
               ratingWidget: RatingWidget(
-                empty:
-                    Icon(Icons.favorite_border, color: Color(0xffFF8993), size: 20),
+                empty: Icon(Icons.favorite_border, color: Color(0xffFF8993), size: 20),
                 full: Icon(
                   Icons.favorite,
                   color: Color(0xffFF8993),
                   size: 20,
                 ),
-                half: null,
+                half: SizedBox(),
               ),
             ),
             Container(
                 margin: EdgeInsets.symmetric(vertical: 16.0),
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                    color: Colors.grey[200], borderRadius: BorderRadius.all(Radius.circular(5))),
                 child: TextField(
                   controller: TextEditingController(),
                   decoration: InputDecoration(

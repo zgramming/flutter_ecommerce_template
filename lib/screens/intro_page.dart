@@ -13,19 +13,23 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-//      width: MediaQuery.of(context).size.width,
+    return Scaffold(
+      body: Container(
         decoration: BoxDecoration(
-            color: Colors.grey[100],
-            image: DecorationImage(image: AssetImage('assets/background.png'))),
+          color: Colors.grey[100],
+          image: DecorationImage(
+            image: AssetImage('assets/background.png'),
+          ),
+        ),
         child: Stack(
           children: <Widget>[
             PageView(
               onPageChanged: (value) {
-                setState(() {
-                  pageIndex = value;
-                });
+                setState(
+                  () {
+                    pageIndex = value;
+                  },
+                );
               },
               controller: controller,
               children: <Widget>[
@@ -45,13 +49,11 @@ class _IntroPageState extends State<IntroPage> {
                       child: Text(
                         'Get Any Thing Online',
                         textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16.0),
                       child: Text(
                         'You can buy anything ranging from digital products to hardware within few clicks.',
                         textAlign: TextAlign.right,
@@ -76,13 +78,11 @@ class _IntroPageState extends State<IntroPage> {
                       child: Text(
                         'Shipping to anywhere ',
                         textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16.0),
                       child: Text(
                         'We will ship to anywhere in the world, With 30 day 100% money back policy.',
                         textAlign: TextAlign.right,
@@ -107,13 +107,11 @@ class _IntroPageState extends State<IntroPage> {
                       child: Text(
                         'On-time delivery',
                         textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16.0),
                       child: Text(
                         'You can track your product with our powerful tracking service.',
                         textAlign: TextAlign.right,
@@ -126,7 +124,7 @@ class _IntroPageState extends State<IntroPage> {
             ),
             Positioned(
               bottom: 16.0,
-              child: SizedBox(
+              child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: <Widget>[
@@ -167,25 +165,20 @@ class _IntroPageState extends State<IntroPage> {
                       children: <Widget>[
                         Opacity(
                           opacity: pageIndex != 2 ? 1.0 : 0.0,
-                          child: FlatButton(
-                            splashColor: Colors.transparent,
+                          child: ElevatedButton(
                             child: Text(
                               'SKIP',
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                                  color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
                             ),
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => MainPage()));
+                                  MaterialPageRoute(builder: (context) => MainPage()));
                             },
                           ),
                         ),
                         pageIndex != 2
-                            ? FlatButton(
-                                splashColor: Colors.transparent,
+                            ? ElevatedButton(
                                 child: Text(
                                   'NEXT',
                                   style: TextStyle(
@@ -200,8 +193,7 @@ class _IntroPageState extends State<IntroPage> {
                                         curve: Curves.linear);
                                 },
                               )
-                            : FlatButton(
-                                splashColor: Colors.transparent,
+                            : ElevatedButton(
                                 child: Text(
                                   'FINISH',
                                   style: TextStyle(
@@ -211,8 +203,7 @@ class _IntroPageState extends State<IntroPage> {
                                 ),
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) => MainPage()));
+                                      MaterialPageRoute(builder: (context) => MainPage()));
                                 },
                               )
                       ],
